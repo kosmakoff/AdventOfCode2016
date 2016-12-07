@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace Day01
 {
@@ -10,7 +9,7 @@ namespace Day01
         {
             Console.WriteLine("Advent Of Code 2016, day 1");
 
-            var input = string.Join("", args).Replace(" ", string.Empty);
+            var input = args[0];
 
             var routeParser = new RouteParser();
             var steps = routeParser.GetSteps(input).ToArray();
