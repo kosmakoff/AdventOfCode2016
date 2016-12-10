@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Day02.Keypads;
 
@@ -10,9 +11,17 @@ namespace Day02
         {
             Console.WriteLine("Advent Of Code 2016, day 2");
 
-            var input = args[0];
+            var fileName = args[0];
 
-            var lines = input.Split('\n', '|');
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine("File not found");
+                return;
+            }
+
+            var input = File.ReadAllText(fileName);
+
+            var lines = input.Split('\n');
 
             var parser = new MoveDirectionParser();
 

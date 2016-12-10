@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace Day01
@@ -9,7 +10,15 @@ namespace Day01
         {
             Console.WriteLine("Advent Of Code 2016, day 1");
 
-            var input = args[0];
+            var fileName = args[0];
+
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine("File not found");
+                return;
+            }
+
+            var input = File.ReadAllText(fileName);
 
             var routeParser = new RouteParser();
             var steps = routeParser.GetSteps(input).ToArray();

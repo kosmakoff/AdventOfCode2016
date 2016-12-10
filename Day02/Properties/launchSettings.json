@@ -2,7 +2,7 @@
   "profiles": {
     "Day02": {
       "commandName": "Project",
-      "commandLineArgs": "\"ULL\nRRDDD\nLURDL\nUUUUD\""
+      "commandLineArgs": "input.txt"
     }
   }
 }
