@@ -22,7 +22,6 @@ namespace Day07
 
             var input = File.ReadAllText(fileName);
 
-
             var inputData = input
                 .Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(Decompose)
