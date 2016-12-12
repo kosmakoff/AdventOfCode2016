@@ -1,6 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
+using Common;
 using Day02.Keypads;
 
 namespace Day02
@@ -11,15 +11,7 @@ namespace Day02
         {
             Console.WriteLine("Advent Of Code 2016, day 2");
 
-            var fileName = args[0];
-
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine("File not found");
-                return;
-            }
-
-            var input = File.ReadAllText(fileName);
+            var input = InputUtils.GetInput(args).ReadToEnd();
 
             var lines = input.Split('\n');
 

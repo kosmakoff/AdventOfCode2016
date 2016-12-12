@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Common;
 
 namespace Day07
 {
@@ -12,15 +12,7 @@ namespace Day07
         {
             Console.WriteLine("Advent Of Code 2016, day 7");
 
-            var fileName = args[0];
-
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine("File not found");
-                return;
-            }
-
-            var input = File.ReadAllText(fileName);
+            var input = InputUtils.GetInput(args).ReadToEnd();
 
             var inputData = input
                 .Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries)

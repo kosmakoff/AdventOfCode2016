@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
-using System.Threading.Tasks;
+using Common;
 
 namespace Day09
 {
@@ -14,15 +11,7 @@ namespace Day09
         {
             Console.WriteLine("Advent Of Code 2016, day 9");
 
-            var fileName = args[0];
-
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine("File not found");
-                return;
-            }
-
-            var input = File.ReadAllText(fileName).Trim();
+            var input = InputUtils.GetInput(args).ReadToEnd().Trim();
 
             var decompressedFileLength = GetDecompressedFileLength(input, recurse: false);
 

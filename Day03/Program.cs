@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
+using Common;
 
 namespace Day03
 {
@@ -12,15 +11,7 @@ namespace Day03
         {
             Console.WriteLine("Advent Of Code 2016, day 3");
 
-            var fileName = args[0];
-
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine("File not found");
-                return;
-            }
-
-            var input = File.ReadAllText(fileName);
+            var input = InputUtils.GetInput(args).ReadToEnd();
 
             var trianglesData = input
                 .Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries)

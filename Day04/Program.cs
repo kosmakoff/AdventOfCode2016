@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Common;
 
 namespace Day04
 {
@@ -13,15 +11,7 @@ namespace Day04
         {
             Console.WriteLine("Advent Of Code 2016, day 4");
 
-            var fileName = args[0];
-
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine("File not found");
-                return;
-            }
-
-            var input = File.ReadAllText(fileName);
+            var input = InputUtils.GetInput(args).ReadToEnd();
 
             var lines = input.Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
 
