@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Day11.Entities;
@@ -75,20 +76,19 @@ namespace Day11
                     var newStatesList = new List<GameState>(currentStates) {newState};
                     statesList.Add(newStatesList);
 
-                    yield return new List<GameState>(newStatesList);
+                    yield return newStatesList;
                 }
             }
 
             // finally, recursively go through all possible transitions from the newly generated states
-            foreach (var stateList in statesList)
+            foreach (var gameStates in statesList.SelectMany(ListStateTransitions))
             {
-                foreach (var gameStates in ListStateTransitions(stateList))
-                {
-                    yield return gameStates;
-                }
+                Debug.WriteLine($"Bump! {gameStates.Count}\n{string.Join("\n", gameStates)}\n");
+                yield return gameStates;
             }
         }
 
+        [DebuggerStepThrough]
         private static IEnumerable<Floor> ListAdjacentFloors(Floor floor)
         {
             switch (floor)
@@ -118,6 +118,7 @@ namespace Day11
         /// <param name="floorStateCurrent">Current floor</param>
         /// <param name="floorStateNext">Adjacent/next floor</param>
         /// <returns></returns>
+        [DebuggerStepThrough]
         private static IEnumerable<Tuple<FloorState, FloorState>> ListAdjacentFloorStates(FloorState floorStateCurrent, FloorState floorStateNext)
         {
             // list all items
@@ -142,6 +143,7 @@ namespace Day11
             }
         }
 
+        [DebuggerStepThrough]
         private static Tuple<FloorState, FloorState> ComputeItemMove(FloorState floorStateCurrent, FloorState floorStateNext, object[] items)
         {
             var generatorsToMove = items.OfType<Generator>().ToList();

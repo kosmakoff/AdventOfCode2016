@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Day11.Entities;
 
 namespace Day11
 {
+    [DebuggerStepThrough]
     public class FloorState
     {
         public ICollection<Generator> Generators { get; }

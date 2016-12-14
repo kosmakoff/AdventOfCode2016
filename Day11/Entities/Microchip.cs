@@ -1,5 +1,8 @@
-﻿namespace Day11.Entities
+﻿using System.Diagnostics;
+
+namespace Day11.Entities
 {
+    [DebuggerStepThrough]
     public class Microchip
     {
         public Material Material { get; }
